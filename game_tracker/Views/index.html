@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul>
+        {% for log in Logs %}
+            <li>Winner: {{log.Winner}} scored {{log.WinnerScore}} in the game {{log.Game}} on {{ log.DatePlayed|date:"d F, Y"}}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="post" action="/">
+        {% csrf_token %}
+        <label>Winner</label>
+        <input type="text" name="winner"/></br>
+        <label>Game</label>
+        <select>
+
+        </select>
+        <label>Points</label>
+        <input type="number" name="points"/></br>
+        <input type="submit" value="Log"/>
+
+    </form>
+</body>
+</html>
